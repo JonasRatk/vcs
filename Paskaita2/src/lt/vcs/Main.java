@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner( System.in );
         String ivedimas = input.next();
-        
+
         System.out.println("");
         if (ivedimas.equals("pabaiga")){
             System.out.println("Ivestas zodis pabaiga");
