@@ -10,6 +10,7 @@
    nukeliaujam i pacia pabaiga reiksmes, patikrinam kad ji baigtusi kabletaskiu ;
    jei nesibaigia padedam kabletaski ir prirasom %JAVA_HOME%/bin
    pvz.:    ...Skype\Phone;%JAVA_HOME%\bin
+   
 */
 public class Hello {
     /**
