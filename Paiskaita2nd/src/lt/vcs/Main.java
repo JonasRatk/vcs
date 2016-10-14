@@ -26,9 +26,6 @@ public class Main {
         System.out.println("Pakeistos a raides i z: " +result);
 
 
-        int b = sakinys.indexOf('a');
-        System.out.println( b);
-
         System.out.println("raidziu isviso " + sakinys.length());
 
         }
