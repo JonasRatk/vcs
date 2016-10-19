@@ -12,7 +12,7 @@ public class Jonas extends User {
 
     public Jonas(String spalva){
         
-        super("Jonas ");
+        super("Jonas ", "Ezys ","Nike ");
         
         this.spalva = spalva;
     }

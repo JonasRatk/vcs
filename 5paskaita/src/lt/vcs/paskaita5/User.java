@@ -8,6 +8,7 @@ public class User {
     private String pavarde;
     private final String classesVardas;
     private int amzius = 77;
+    private String prekinisZenklas;
 
 
     /**
@@ -20,9 +21,10 @@ public class User {
      * @param arg2 pavarde
      */
 
-    public User(String vardas, String pavarde){
+    public User(String vardas, String pavarde,String prekinisZenklas){
         this(vardas);
         this.pavarde = pavarde;
+        this.prekinisZenklas = prekinisZenklas;
 
     }
     public User(String vardas){
@@ -47,8 +49,9 @@ public class User {
     public String toString(){
         String rezult = super.toString() +
                " " + this.classesVardas + " : " +
-                "vardas - " + this.vardas +
-                "pavarde - " + this.pavarde;
+                " Vardas - " + this.vardas +
+                " Pavarde - " + this.pavarde +
+                " Prekinis Zenklas - " + this.prekinisZenklas;
         return rezult;
     }
     public String getVardas() {

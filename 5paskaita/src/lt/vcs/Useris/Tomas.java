@@ -10,7 +10,7 @@ public class Tomas extends User {
     private String hobis;
 
     public Tomas(String hobis){
-        super("Tomas ");
+        super("Tomas ","Krabas ","Adidas ");
         this.hobis = hobis;
     }
 
@@ -22,6 +22,6 @@ public class Tomas extends User {
 
     @Override
     public String toString(){
-        return super.toString() + " megsta " + hobis;
+        return super.toString() + " Megsta: " + hobis;
     }
 }
