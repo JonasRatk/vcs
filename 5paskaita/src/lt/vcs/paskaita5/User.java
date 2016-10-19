@@ -7,6 +7,8 @@ public class User {
     private String vardas;
     private String pavarde;
     private final String ClassVardas;
+    private int amzius = 77;
+
 
     /**
      *
@@ -14,15 +16,33 @@ public class User {
      * @param arg2 pavarde
      */
 
-    public User(String arg, String arg2){
-        vardas = arg;
-        pavarde = arg2;
-        this.ClassVardas = this.getClass().getName();
+    public User(String vardas, String pavarde){
+        this(vardas);
+        this.pavarde = pavarde;
 
     }
+    public User(String vardas){
+        super();
+        this.vardas = vardas;
+        this.ClassVardas = this.getClass().getName();
+    }
+
+
+    public int getAmzius() {
+        return amzius;
+    }
+    public int getAmzius(int plius) {
+        return amzius + plius;
+    }
+    public int getAmzius(String plius) {
+
+        return amzius + new Integer(plius);
+    }
+
     @Override
     public String toString(){
-        String rezult = this.ClassVardas + " : " +
+        String rezult = super.toString() +
+               " " + this.ClassVardas + " : " +
                 "vardas - " + this.vardas +
                 "pavarde - " + this.pavarde;
         return rezult;
