@@ -6,11 +6,15 @@ package lt.vcs.paskaita5;
 public class User {
     private String vardas;
     private String pavarde;
-    private final String ClassVardas;
+    private final String classesVardas;
     private int amzius = 77;
 
 
     /**
+     *
+     * @param arg vardas
+     * @param arg2 pavarde
+     */  /**
      *
      * @param arg vardas
      * @param arg2 pavarde
@@ -24,7 +28,7 @@ public class User {
     public User(String vardas){
         super();
         this.vardas = vardas;
-        this.ClassVardas = this.getClass().getName();
+        this.classesVardas = this.getClass().getName();
     }
 
 
@@ -42,7 +46,7 @@ public class User {
     @Override
     public String toString(){
         String rezult = super.toString() +
-               " " + this.ClassVardas + " : " +
+               " " + this.classesVardas + " : " +
                 "vardas - " + this.vardas +
                 "pavarde - " + this.pavarde;
         return rezult;
@@ -63,7 +67,7 @@ public class User {
         this.pavarde = pavarde;
     }
 
-    public String getClassVardas() {
-        return ClassVardas;
+    public String getClassesVardas() {
+        return classesVardas;
     }
 }
