@@ -36,6 +36,7 @@ public enum Combination {
     private Combination(int bonus) {
         this.bonus = bonus;
     }
+
     //TODO: prideti bonusu kintamaji, parasyti konstruktoriu, padaryti metoda, leidzianti
     //gauti bonuso kintamaji (Alt+insert  arba  Code->Generate...)
 

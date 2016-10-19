@@ -1,6 +1,5 @@
 package lt.vcs;
 
-import javax.swing.plaf.basic.BasicScrollPaneUI;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
@@ -10,12 +9,6 @@ public class Main {
 
         int p1Cash = 150; //pradine zaideju turima suma
         int p2Cash = 150;
-        int bet;
-        int bet2;
-        int betsum;
-        String didint;
-        Random dice1 = new Random();
-
 
         VcsUtils.println("Kauliuku pokeris");
         VcsUtils.println("Zaidejas 1, iveskite savo varda");
@@ -23,32 +16,30 @@ public class Main {
         VcsUtils.println("Zaidejas 2, iveskite savo varda");
         String player2 = VcsUtils.inputWord();
 
-        VcsUtils.println("Zaidejas 1,jus turite " + p1Cash + " pinigu");
-        VcsUtils.println("Pasirinkite statymo suma");
-        bet = VcsUtils.inputInt();
-        VcsUtils.println("Zaidejas 2, jus turite " + p2Cash);
-        VcsUtils.println("Pasirinkite statymo suma");
-        bet2 = VcsUtils.inputInt();
+//        do {
+        VcsUtils.println(player1 + " iveskite statymo suma:");
+        int plr1Bet = VcsUtils.inputInt();
+        VcsUtils.println(player2 + " iveskite statymo suma:");
+        int plr2Bet = VcsUtils.inputInt();
         boolean continueGame = true;
-
-        while (continueGame && bet2 != bet){
-            if (bet2 > bet) {
-                VcsUtils.println(player1 + ", priesininkas pakele statyma iki " + bet2 + ", ar norite islyginti? (0) - ne , (1) - taip");
+        while (continueGame && plr2Bet != plr1Bet) {
+            if (plr2Bet > plr1Bet) {
+                VcsUtils.println(player1 + ", priesininkas pakele statyma iki " + plr2Bet + ", ar norite islyginti? (0) - ne , (1) - taip");
                 int plr1Choice = VcsUtils.inputInt();
                 if (plr1Choice == 1) {
-                    bet = bet2;
+                    plr1Bet = plr2Bet;
                 } else {
-                    p1Cash -= bet;
+                    p1Cash -= plr1Bet;
                     continueGame = false;
                 }
             }
-            if (bet2 < bet) {
-                VcsUtils.println(player2 + ", priesininkas pakele statyma iki " + bet + ", ar norite islyginti? (0) - ne , (1) - taip");
+            if (plr2Bet < plr1Bet) {
+                VcsUtils.println(player2 + ", priesininkas pakele statyma iki " + plr1Bet + ", ar norite islyginti? (0) - ne , (1) - taip");
                 int plr2Choice = VcsUtils.inputInt();
                 if (plr2Choice == 1) {
-                    bet2 = bet;
+                    plr2Bet = plr1Bet;
                 } else {
-                    p2Cash -= bet2;
+                    p2Cash -= plr2Bet;
                     continueGame = false;
                 }
             }
@@ -58,7 +49,7 @@ public class Main {
         VcsUtils.println(player1 + "isrideno: " + intArrayToString(plr1Hand));
         VcsUtils.println(player2 + "isrideno: " + intArrayToString(plr2Hand));
         //pirmas isridenimas baigtas
-        VcsUtils.println("Prasideda antras kauliuku isridenimas");
+
         VcsUtils.println(player1 + " iveskite statymo suma:");
         int plr1ReBet = VcsUtils.inputInt();
         VcsUtils.println(player2 + " iveskite statymo suma:");
@@ -70,7 +61,7 @@ public class Main {
                 if (plr1Choice == 1) {
                     plr1ReBet = plr2ReBet;
                 } else {
-                    p1Cash -= (bet + plr1ReBet);
+                    p1Cash -= (plr1Bet + plr1ReBet);
                     continueGame = false;
                 }
             }
@@ -80,7 +71,7 @@ public class Main {
                 if (plr2Choice == 1) {
                     plr2ReBet = plr1ReBet;
                 } else {
-                    p2Cash -= (bet2 + plr2ReBet);
+                    p2Cash -= (plr2Bet + plr2ReBet);
                     continueGame = false;
                 }
             }
@@ -112,31 +103,25 @@ public class Main {
         //zaidimo galas
         int plr1Sum = getSum(plr1Hand);
         int plr2Sum = getSum(plr2Hand);
-        int totalBet = bet + plr1ReBet;
+        int totalBet = plr1Bet + plr1ReBet;
         if (plr1Sum > plr2Sum) {
             p1Cash += totalBet;
             p2Cash -= totalBet;
-            VcsUtils.println(player1 + " laimejo!");
+            VcsUtils.println(player1 + "laimejo!");
         } else if (plr1Sum < plr2Sum) {
             p2Cash += totalBet;
             p1Cash -= totalBet;
-            VcsUtils.println(player2 + " laimejo!");
+            VcsUtils.println(player2 + "laimejo!");
         } else {
             VcsUtils.println("Lygiosios, statymo sumos grazintos zaidejam");
         }
-        VcsUtils.println(player1 + " pinigu likutis:" + p1Cash);
-        VcsUtils.println(player2 + " pinigu likutis:" + p2Cash);
-        }
-        //            else if (bet < 0 || bet < p1Cash);{
-//                VcsUtils.println("Zaidejas 2, ar norite padidinti statyma? " + " Jusu turimi pinigai " + p2Cash);
-//                VcsUtils.println("Jeigu taip parasykite T");
-//                String start = VcsUtils.inputWord();
-//                if(start.equalsIgnoreCase("T")){
-//
-//                }
-//            }
+        VcsUtils.println(player1 + "pinigu likutis:" + p1Cash);
+        VcsUtils.println(player2 + "pinigu likutis:" + p2Cash);
 
-//        int[] arr = {15,30,50};// pavyzdys :)
+
+
+
+//        int[] arr = {1, 3, 5};// pavyzdys :)
 //        VcsUtils.println(intArrayToString(arr));//pagalbinio metodo naudojimo pvz, kuri issitrinkit arba uzsikomentuokit :)
 //        VcsUtils.println("" + arr[1]);//priminimas kaip galima pasiekti masyvo elementus :)
 
@@ -147,16 +132,16 @@ public class Main {
         //TODO: Google is your friend ;)
 
 
-
         //----------------------------------
-    //-----main end-----\\
-        private static int getSum(int[] arr) {
-            int result = 0;
-            for (int i : arr) {
-                result += i;
-            }
-            return result;
+    }//-----main end-----\\
+
+    private static int getSum(int[] arr) {
+        int result = 0;
+        for (int i : arr) {
+            result += i;
         }
+        return result;
+    }
 
     private static void reRollDice(int[] hand, int dicePos) {
         hand[dicePos-1] = rand();
@@ -173,8 +158,10 @@ public class Main {
     private static int rand() {
         return ThreadLocalRandom.current().nextInt(1, 6 + 1);
     }
+
     /**
      * isvercia masyvo reiksmes i suprantama formata
+     *
      * @param arr masyvas, kuri versim
      * @return suprantama masyvo tekstine reprezentacija
      */
@@ -185,7 +172,7 @@ public class Main {
         }
         return result.trim();
     }
-}
+
 
     //TODO: nebijokit pasirasyti sau pagalbiniu metodu, jei reikia/norit, jie padaro koda tvarkingesni
     // pvz galit pasirasyti metoda pagalbini random generavimui kad nereiktu pastoviai rasyti ilgu litaniju
@@ -193,3 +180,4 @@ public class Main {
     //TODO: nepamirskit kad main metodas statinis todel ir pagalbiniai metodai turetu buti statiniai, kad
     //juos butu galima naudoti main metode
 
+}
