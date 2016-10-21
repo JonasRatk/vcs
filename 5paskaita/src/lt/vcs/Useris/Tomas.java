@@ -14,14 +14,11 @@ public class Tomas extends User {
         this.hobis = hobis;
     }
 
-    public String getHobis() { return hobis;
-    }
+    public String getHobis() { return hobis;}
 
     public void setHobis(String hobis) { this.hobis = hobis;
     }
 
     @Override
-    public String toString(){
-        return super.toString() + " Megsta: " + hobis;
-    }
+    public String toString(){return super.toString() + " Megsta: " + hobis;}
 }
