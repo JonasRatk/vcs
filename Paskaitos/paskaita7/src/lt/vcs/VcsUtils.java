@@ -53,22 +53,28 @@ public class VcsUtils {
     }
 
     /**
-     *
-     * @param file
-     * @return
-     * @throws IOException
+     * Metodas failo readeriui gauti
+     * @param file failo pavadinimas su keliu iki jo (path)
+     * @return readeri failui
+     * @throws IOException gali mesti exceptiona
      */
     public static BufferedReader newReader(String file) throws IOException {
 
         FileInputStream fis = new FileInputStream(file);
         InputStreamReader isr = new InputStreamReader(fis,VcsUtils.UTF_8 );
-        BufferedReader br = new BufferedReader(isr);
         return new BufferedReader(isr);
     }
+
+    /**
+     * Metodas failo writeriui gauti
+     * @param file failo pavadinimas su keliu iki jo (path)
+     * @return writer failui
+     * @throws IOException gali mesti exceptiona
+
+     */
     public static BufferedWriter newWriter(String file)throws IOException{
         FileOutputStream fos = new FileOutputStream(file);
         OutputStreamWriter osw = new OutputStreamWriter(fos);
-        BufferedWriter bw = new BufferedWriter(osw);
         return new BufferedWriter(osw);
 
     }
