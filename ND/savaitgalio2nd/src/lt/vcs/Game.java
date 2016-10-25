@@ -49,7 +49,7 @@ public class Game {
         }
         boolean continueGame = true;
         if (plr1Bet != plr2Bet) {
-            VcsUtils.println(this.activePlayer.getName() + ", priesininkas pakele statyma iki " + lastBet + ", ar norite islyginti? Taip - (0), Ne - (0)");
+            VcsUtils.println(this.activePlayer.getName() + ", priesininkas pakele statyma iki " + lastBet + ", ar norite islyginti? Taip - (1), Ne - (0)");
             int plrChoise = VcsUtils.inputInt();
             if (plrChoise == 1) {
                 activePlayer.decCash(lastBet - activePlayer.getLastBet());
@@ -61,5 +61,10 @@ public class Game {
         if (continueGame) {
             this.p1.rollHand();
             this.p2.rollHand();
+            VcsUtils.println(this.p1 + "Isrideno: " + GameUtils.intArrayToString(this.p1.getHand().getHandArray()));
+            VcsUtils.println(this.p2 + "isrideno: " + GameUtils.intArrayToString(this.p2.getHand().getHandArray()));
+            this.activePlayer = p1;
+
+        }
     }
 }

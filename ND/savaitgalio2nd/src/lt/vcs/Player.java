@@ -37,6 +37,10 @@ public class Player {
         this.cash -= bet;
     }
 
+    public void incChash(int win ){
+        this.cash += win;
+    }
+
     public Hand getHand() {
         return hand;
     }
@@ -48,4 +52,9 @@ public class Player {
     public void setLastBet(int lastBet) {
         this.lastBet = lastBet;
     }
+
+    public void rollHand(){
+        this.hand = new Hand(GameUtils.rollHand());
+    }
+
 }
